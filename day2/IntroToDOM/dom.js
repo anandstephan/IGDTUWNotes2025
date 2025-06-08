@@ -1,3 +1,8 @@
+
+
+
+
+
 // Feature
 // Add Item
 // Delete Item
@@ -6,6 +11,9 @@
 // Step 1 first get the btn and attach the listener
 // Step 2 get the Value from the input box
 // Step 3 append on the last item
+
+
+
 
 let btn = document.getElementById("komal")
 // console.log(btn)
