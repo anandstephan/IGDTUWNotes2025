@@ -1,9 +1,9 @@
 import { ListGroup } from "react-bootstrap"
 import ListItem from "./ListItem"
 
-const List = () =>{
+const List = ({taskList,onDelete}) =>{
 return <ListGroup>
-        {[1,2,3].map((item,idx) => <ListItem key={idx}/>)}
+        {taskList.map((item,idx) => <ListItem key={idx} item={item} onDelete={onDelete}/>)}
 </ListGroup>
 }
 

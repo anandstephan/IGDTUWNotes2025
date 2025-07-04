@@ -1,7 +1,10 @@
 import { ListGroup } from "react-bootstrap"
 
-const ListItem = () =>{
-return  <ListGroup.Item>1</ListGroup.Item>
+const ListItem = ({item,onDelete}) =>{
+    const onDeleteHandler = (item) =>{
+        onDelete(item)
+    }
+return  <ListGroup.Item onDoubleClick={()=>onDeleteHandler(item)}>{item}</ListGroup.Item>
 }
 
 export default ListItem
