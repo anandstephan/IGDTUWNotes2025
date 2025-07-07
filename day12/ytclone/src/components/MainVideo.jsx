@@ -1,14 +1,17 @@
 import { Container,Image } from "react-bootstrap"
 
-const MainVideo = () =>{
+const MainVideo = ({mainVideo}) =>{
+        // console.log("mainVideo",mainVideo)
+
+if(mainVideo===null) return <h1>Loading...</h1>
 return <Container>
         <Image
-        src="https://plus.unsplash.com/premium_photo-1672115680958-54438df0ab82?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bW91bnRhaW5zfGVufDB8fDB8fHww"
+        src={mainVideo.snippet.thumbnails.high.url}
         thumbnail
         />
-        <h5>Title</h5>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam maiores cupiditate officiis mollitia tenetur. Magnam ea, repellendus totam maxime quaerat maiores temporibus vero voluptates quod fugiat beatae, est voluptate mollitia!</p>
-</Container>
+        <h5>{mainVideo.snippet.channelTitle}</h5>
+        <p>{mainVideo.snippet.description}</p>
+        </Container>
 }
 
 export default MainVideo

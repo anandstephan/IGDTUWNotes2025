@@ -1,10 +1,10 @@
 import { Container } from "react-bootstrap"
 import LisItem from "./ListItem"
 
-const List = () =>{
-    const arr  =[1,2,3,4,5]
+const List = ({list}) =>{
+
 return <Container>
-    {arr.map(item => <LisItem/>)}
+    {list.map(item => <LisItem videoDetail={item}/>)}
 </Container>
 }
 
