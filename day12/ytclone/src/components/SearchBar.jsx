@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { InputGroup,Form, Button } from "react-bootstrap"
 //
-const SearchBar = () =>{
+const SearchBar = ({onSearch}) =>{
 
   const [search,setSearch] = useState('')
   console.log(search)
@@ -12,7 +12,10 @@ value={search}
 onChange={e => setSearch(e.target.value)}
 />
 
-<Button variant="danger">Search...</Button>
+<Button variant="danger" onClick={()=>{
+  onSearch(search)
+  setSearch('')
+}}>Search...</Button>
 </InputGroup>
 }
 

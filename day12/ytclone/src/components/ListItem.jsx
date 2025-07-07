@@ -1,9 +1,9 @@
 import { Container, Row,Col,Image } from "react-bootstrap"
 
-const LisItem = ({videoDetail}) =>{
+const LisItem = ({videoDetail,setMainVideo}) =>{
 
-    console.log(videoDetail)
-return <Container className="mb-3">
+    // console.log(videoDetail)
+return <Container className="mb-3" onClick={()=>setMainVideo(videoDetail)}>
         <Row>
             <Col sm={6}>
             <Image
