@@ -23,10 +23,21 @@ export const todoSlice = createSlice({
           state.todos  = newar
         },
         changeUpdateState:(state,action) =>{
-
+            state.todos = state.todos.map(item => {
+                if(item.id === action.payload){
+                    item.isUpdate = true
+                }
+                return item
+            })
         },
         finalUpdate:(state,action) =>{
-
+                state.todos = state.todos.map(item =>{
+                    if(item.id === action.payload.id){
+                        item.isUpdate = false;
+                        item.text = action.payload.todo
+                    }
+                    return item
+                })
         }
     }
 })
