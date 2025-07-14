@@ -6,9 +6,10 @@ import { useEffect, useState } from "react"
 const App = () =>{
 
   const [recipes,setRecipes] = useState([])
+  const [search,setSearch] = useState('icecream')
 
   const fetchRecipes = async (searchTerm) =>{
-    const res = await fetch('https://api.edamam.com/api/recipes/v2?type=public&q=icecream&app_id=feff5efa&app_key=d43fccfd7f8e7f78a0dd7c00a6919ebf',{
+    const res = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${searchTerm}&app_id=feff5efa&app_key=d43fccfd7f8e7f78a0dd7c00a6919ebf`,{
        method: "GET",
   headers: {
     "Edamam-Account-User": "App"  
@@ -19,12 +20,12 @@ const App = () =>{
   }
 
   useEffect(()=>{
-    fetchRecipes()
-  },[])
+    fetchRecipes(search)
+  },[search])
 
 
 return <Container className="text-center">
-    <Input/>
+    <Input onSearchHandler={setSearch}/>
     <Row>
       {recipes.map(item => <Col><RecipeCard recipe={item}/></Col>)}
 
